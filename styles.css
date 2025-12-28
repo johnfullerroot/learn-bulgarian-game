@@ -343,6 +343,26 @@ h1#lesson-title {
     gap: 0.8rem;                         /* Consistent reduced spacing */
 }
 
+#resources {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e0e7ff;
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.resource-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.resource-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
 @media (max-width: 640px) {
     /* Reduce base font size for the whole app on mobile */
     html {
