@@ -87,7 +87,7 @@ While many language apps exist for popular languages, this project stands out by
 
 Contributions are welcome! Feel free to submit pull requests for new lessons, bug fixes, or enhancements. For issues, open a GitHub ticket.
 
-##Demo
+## Demo
 
 Check out the live demo on GitHub Pages:
 https://johnfullerroot.github.io/learn-bulgarian-game/
