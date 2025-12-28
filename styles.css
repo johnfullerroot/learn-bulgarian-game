@@ -342,3 +342,65 @@ h1#lesson-title {
 #game-container {
     gap: 0.8rem;                         /* Consistent reduced spacing */
 }
+
+@media (max-width: 640px) {
+    /* Reduce base font size for the whole app on mobile */
+    html {
+        font-size: 14px;  /* Down from browser default ~16px */
+    }
+
+    /* Title – scales down significantly */
+    h1#lesson-title {
+        font-size: 1.8rem;  /* Was 2.8rem → ~64% smaller */
+    }
+
+    /* Instructions and prompts */
+    #instructions,
+    #game-container p {
+        font-size: 1.1rem;  /* Was 1.35rem / 1.6rem */
+    }
+
+    /* Nav buttons (Match, Conversation, Fill in the Blank) */
+    #game-nav button {
+        padding: 0.8rem 1rem;     /* Was 1.3rem 1.8rem → much smaller */
+        font-size: 1rem;          /* Was 1.2rem */
+        max-width: 220px;         /* Slightly smaller to fit better */
+    }
+
+    /* Choice buttons in games */
+    .choice {
+        padding: 0.6rem 0.9rem !important;  /* Was 0.8rem 1.2rem → tighter */
+        font-size: 1.15rem;                 /* Was 1.45rem */
+        margin: 0.3rem 0 !important;
+    }
+
+    /* Feedback text */
+    #feedback {
+        font-size: 1.4rem;        /* Was 1.9rem */
+        padding: 1.2rem;
+    }
+
+    /* Restart button */
+    #restart-lesson-btn {
+        padding: 1rem 2rem;       /* Was 1.4rem 3rem */
+        font-size: 1.1rem;        /* Was 1.35rem */
+    }
+
+    /* Tighter gaps in match game columns */
+    #bg-column, #en-column {
+        gap: 0.4rem !important;
+    }
+
+    /* Optional: Stack nav buttons vertically on very small screens for better fit */
+    #game-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    /* Reduce overall app padding on mobile */
+    #app {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+}
