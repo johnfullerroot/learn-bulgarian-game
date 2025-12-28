@@ -242,6 +242,27 @@
             opacity: 0;
             animation-delay: calc(0.1s * var(--i));
         }
+
+        #resources {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e0e7ff;
+            color: #636e72;
+            font-size: 1.1rem;
+        }
+
+        .resource-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
     </style>
 </head>
 <body>
@@ -294,6 +315,11 @@
         <textarea id="jsonOutput" readonly placeholder="Generated JSON will appear here…"></textarea>
     </div>
 
+        <footer id="resources" style="margin-top: 3rem; text-align: center; font-size: 1.1rem; color: #2c3e50;">
+            <a href="cheat-sheet.html" target="_blank" class="resource-link">Cheat Sheet</a> • 
+            <a href="index.html" target="_blank" class="resource-link">Learn Bulgarian Game</a>
+        </footer>
+    
     <script>
         let matchCount = 0;
         let optionCount = 0;
