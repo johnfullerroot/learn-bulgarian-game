@@ -36,21 +36,21 @@ The app emphasises simplicity, offline usability, and extensibility, making it i
 
 1. Clone or download the repository:
 
-git clone https://github.com/johnfullerroot/learn-bulgarian-game.git
+`git clone https://github.com/johnfullerroot/learn-bulgarian-game.git`
 
 2. Navigate to the project directory:
 
-cd learn-bulgarian-game
+`cd learn-bulgarian-game`
 
 3. Start a local server (required for local execution because the app uses ES6 modules):
 - If you have Node.js installed, the easiest way is:
 
-npx serve
+`npx serve`
 
 (This uses the lightweight `serve` package automatically — no global install needed.)
 - Alternatively, if you have Python 3:
 
-python -m http.server 8000
+`python -m http.server 8000`
 
 4. Open your browser and go to the address shown (usually http://localhost:3000 for `npx serve` or http://localhost:8000 for Python).
 The first lesson will load automatically.
