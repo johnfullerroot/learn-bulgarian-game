@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson19",
+  "title": "Lesson 19: Professions",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "лекар", "en": "doctor" },
+        { "bg": "учител", "en": "teacher" },
+        { "bg": "инженер", "en": "engineer" },
+        { "bg": "адвокат", "en": "lawyer" },
+        { "bg": "готвач", "en": "chef" },
+        { "bg": "шофьор", "en": "driver" },
+        { "bg": "полицай", "en": "police officer" },
+        { "bg": "програмист", "en": "programmer" },
+        { "bg": "журналист", "en": "journalist" },
+        { "bg": "архитект", "en": "architect" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Каква е професията ти?",
+      "options": [
+        { "text": "Аз съм учител.", "correct": true },
+        { "text": "Благодаря!", "correct": false },
+        { "text": "Къде?", "correct": false },
+        { "text": "Аз съм лекар.", "correct": true },
+        { "text": "Аз съм инженер.", "correct": true },
+        { "text": "В понеделник.", "correct": false },
+        { "text": "Не знам.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Той е ____.",
+      "choices": ["лекар", "учител", "готвач", "инженер", "шофьор", "полицай", "адвокат"],
+      "answer": "лекар"
+    }
+  }
+}

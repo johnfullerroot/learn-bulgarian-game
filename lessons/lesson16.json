@@ -1,0 +1,38 @@
+{
+  "lessonId": "lesson16",
+  "title": "Lesson 16: Weather and Seasons",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "време", "en": "weather" },
+        { "bg": "пролет", "en": "spring" },
+        { "bg": "лято", "en": "summer" },
+        { "bg": "есен", "en": "autumn" },
+        { "bg": "зима", "en": "winter" },
+        { "bg": "слънчево", "en": "sunny" },
+        { "bg": "дъждовно", "en": "rainy" },
+        { "bg": "снежно", "en": "snowy" },
+        { "bg": "студено", "en": "cold" },
+        { "bg": "топло", "en": "warm" },
+        { "bg": "облачно", "en": "cloudy" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Какво е времето днес?",
+      "options": [
+        { "text": "Слънчево и топло.", "correct": true },
+        { "text": "Благодаря!", "correct": false },
+        { "text": "Къде?", "correct": false },
+        { "text": "Дъждовно.", "correct": true },
+        { "text": "Студено и снежно.", "correct": true },
+        { "text": "В понеделник.", "correct": false },
+        { "text": "Не знам.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "През лятото е ____.",
+      "choices": ["топло", "време", "пролет", "студено", "дъждовно", "зима", "слънчево"],
+      "answer": "топло"
+    }
+  }
+}

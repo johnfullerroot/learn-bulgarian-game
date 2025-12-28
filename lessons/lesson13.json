@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson13",
+  "title": "Lesson 13: Time and Clock",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "час", "en": "hour" },
+        { "bg": "минута", "en": "minute" },
+        { "bg": "секунда", "en": "second" },
+        { "bg": "сутрин", "en": "morning" },
+        { "bg": "обед", "en": "noon" },
+        { "bg": "следобед", "en": "afternoon" },
+        { "bg": "вечер", "en": "evening" },
+        { "bg": "половина", "en": "half" },
+        { "bg": "четвърт", "en": "quarter" },
+        { "bg": "колко е часът", "en": "what time is it" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Колко е часът?",
+      "options": [
+        { "text": "Девет часът.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "Единадесет и половина.", "correct": true },
+        { "text": "Дванадесет без четвърт.", "correct": true },
+        { "text": "Петък е.", "correct": false },
+        { "text": "Къде?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Срещата е в ____ часът.",
+      "choices": ["девет", "час", "минута", "сутрин", "половина", "четвърт", "вечер"],
+      "answer": "девет"
+    }
+  }
+}

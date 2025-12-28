@@ -1,0 +1,35 @@
+{
+  "lessonId": "lesson10",
+  "title": "Lesson 10: Common Phrases",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "моля", "en": "please" },
+        { "bg": "извинете", "en": "excuse me / sorry" },
+        { "bg": "няма защо", "en": "you're welcome" },
+        { "bg": "разбира се", "en": "of course" },
+        { "bg": "съжалявам", "en": "I'm sorry" },
+        { "bg": "да, моля", "en": "yes please" },
+        { "bg": "не благодаря", "en": "no thank you" },
+        { "bg": "какво", "en": "pardon / what" },
+        { "bg": "поздрави", "en": "regards / cheers" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Благодаря ти много!",
+      "options": [
+        { "text": "Няма защо!", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Какво?", "correct": false },
+        { "text": "Разбира се!", "correct": false },
+        { "text": "Съжалявам.", "correct": false },
+        { "text": "Не благодаря.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Може ли вода, ____?",
+      "choices": ["моля", "петък", "спя", "извинете", "съжалявам", "няма защо", "разбира се"],
+      "answer": "моля"
+    }
+  }
+}

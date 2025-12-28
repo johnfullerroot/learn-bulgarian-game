@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn Bulgarian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main id="app">
+        <h1 id="lesson-title">Loading…</h1>
+
+        <nav id="game-nav">
+            <button data-game="match" disabled>Match the Word</button>
+            <button data-game="conversation" disabled>Conversation</button>
+            <button data-game="fillBlank" disabled>Fill in the Blank</button>
+        </nav>
+
+        <section id="instructions"></section>
+        <section id="game-container"></section>
+        <section id="feedback"></section>
+        <div id="restart-lesson-container" style="margin-top: 1.5rem; text-align: center;">
+        <button id="restart-lesson-btn">Restart Lesson</button>
+        </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+

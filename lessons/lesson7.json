@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson7",
+  "title": "Lesson 7: Food & Drink",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "хляб", "en": "bread" },
+        { "bg": "вода", "en": "water" },
+        { "bg": "кафе", "en": "coffee" },
+        { "bg": "мляко", "en": "milk" },
+        { "bg": "чай", "en": "tea" },
+        { "bg": "ябълка", "en": "apple" },
+        { "bg": "сирене", "en": "cheese" },
+        { "bg": "месо", "en": "meat" },
+        { "bg": "супа", "en": "soup" },
+        { "bg": "сок", "en": "juice" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Искаш ли кафе?",
+      "options": [
+        { "text": "Да, благодаря.", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Къде?", "correct": false },
+        { "text": "Не, предпочитам чай.", "correct": true },
+        { "text": "Да, с мляко.", "correct": true },
+        { "text": "Искам ябълка.", "correct": false },
+        { "text": "Здравей.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Искам чаша ____.",
+      "choices": ["вода", "червен", "един", "чай", "кафе", "сок", "мляко"],
+      "answer": "вода"
+    }
+  }
+}

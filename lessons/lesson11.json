@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson11",
+  "title": "Lesson 11: Numbers 11–20",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "единадесет", "en": "eleven" },
+        { "bg": "дванадесет", "en": "twelve" },
+        { "bg": "тринадесет", "en": "thirteen" },
+        { "bg": "четиринадесет", "en": "fourteen" },
+        { "bg": "петнадесет", "en": "fifteen" },
+        { "bg": "шестнадесет", "en": "sixteen" },
+        { "bg": "седемнадесет", "en": "seventeen" },
+        { "bg": "осемнадесет", "en": "eighteen" },
+        { "bg": "деветнадесет", "en": "nineteen" },
+        { "bg": "двадесет", "en": "twenty" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Колко души са в класа?",
+      "options": [
+        { "text": "Петнадесет души.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "Дванадесет души.", "correct": true },
+        { "text": "Осемнадесет души.", "correct": true },
+        { "text": "Имам ябълка.", "correct": false },
+        { "text": "Къде?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Имам ____ евро.",
+      "choices": ["двадесет", "единадесет", "тринадесет", "шестнадесет", "осемнадесет", "деветнадесет", "седемнадесет"],
+      "answer": "двадесет"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "lessonId": "lesson6",
+  "title": "Lesson 6: Colours",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "червен", "en": "red" },
+        { "bg": "син", "en": "blue" },
+        { "bg": "зелен", "en": "green" },
+        { "bg": "жълт", "en": "yellow" },
+        { "bg": "черен", "en": "black" },
+        { "bg": "бял", "en": "white" },
+        { "bg": "оранжев", "en": "orange" },
+        { "bg": "лилав", "en": "purple" },
+        { "bg": "розов", "en": "pink" },
+        { "bg": "кафяв", "en": "brown" },
+        { "bg": "сив", "en": "gray" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Кой ти е любимият цвят?",
+      "options": [
+        { "text": "Любимият ми е син.", "correct": true },
+        { "text": "Благодаря!", "correct": false },
+        { "text": "Къде?", "correct": false },
+        { "text": "Любимият ми е червен.", "correct": true },
+        { "text": "Любимият ми е зелен.", "correct": true },
+        { "text": "Да.", "correct": false },
+        { "text": "Не знам.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Небето е ____.",
+      "choices": ["син", "пет", "брат", "червен", "голям", "високо", "жълт"],
+      "answer": "син"
+    }
+  }
+}

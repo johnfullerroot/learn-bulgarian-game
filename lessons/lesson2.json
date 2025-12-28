@@ -1,0 +1,36 @@
+{
+  "lessonId": "lesson2",
+  "title": "Lesson 2: Greetings & Farewell",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "довиждане", "en": "goodbye" },
+        { "bg": "как си", "en": "how are you" },
+        { "bg": "добре", "en": "good / well" },
+        { "bg": "благодаря", "en": "thank you" },
+        { "bg": "добър ден", "en": "good day" },
+        { "bg": "добро утро", "en": "good morning" },
+        { "bg": "добър вечер", "en": "good evening" },
+        { "bg": "лека нощ", "en": "good night" },
+        { "bg": "чао", "en": "bye (informal)" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Здравей! Как си?",
+      "options": [
+        { "text": "Добре, благодаря!", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Не.", "correct": false },
+        { "text": "Добре съм, а ти?", "correct": true },
+        { "text": "Благодаря, добре.", "correct": true },
+        { "text": "Чао.", "correct": false },
+        { "text": "Добър ден.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Здравей! ____ си?",
+      "choices": ["Как", "Довиждане", "Благодаря", "Добър", "Лека", "Чао", "Добро"],
+      "answer": "Как"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "lessonId": "lesson12",
+  "title": "Lesson 12: Months of the Year",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "януари", "en": "January" },
+        { "bg": "февруари", "en": "February" },
+        { "bg": "март", "en": "March" },
+        { "bg": "април", "en": "April" },
+        { "bg": "май", "en": "May" },
+        { "bg": "юни", "en": "June" },
+        { "bg": "юли", "en": "July" },
+        { "bg": "август", "en": "August" },
+        { "bg": "септември", "en": "September" },
+        { "bg": "октомври", "en": "October" },
+        { "bg": "ноември", "en": "November" },
+        { "bg": "декември", "en": "December" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Кога е рожденият ти ден?",
+      "options": [
+        { "text": "През юли.", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Какво?", "correct": false },
+        { "text": "През януари.", "correct": true },
+        { "text": "През октомври.", "correct": true },
+        { "text": "В понеделник.", "correct": false },
+        { "text": "Не знам.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Коледата е през ____.",
+      "choices": ["декември", "януари", "март", "юни", "август", "септември", "ноември"],
+      "answer": "декември"
+    }
+  }
+}

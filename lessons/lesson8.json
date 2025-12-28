@@ -1,0 +1,36 @@
+{
+  "lessonId": "lesson8",
+  "title": "Lesson 8: Daily Activities",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "ставам", "en": "I get up" },
+        { "bg": "ям", "en": "I eat" },
+        { "bg": "спя", "en": "I sleep" },
+        { "bg": "работя", "en": "I work" },
+        { "bg": "пия", "en": "I drink" },
+        { "bg": "чета", "en": "I read" },
+        { "bg": "ходя", "en": "I walk" },
+        { "bg": "гледам", "en": "I watch" },
+        { "bg": "играя", "en": "I play" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Какво правиш сутринта?",
+      "options": [
+        { "text": "Ставам и закусвам.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Черен.", "correct": false },
+        { "text": "Пия кафе и чета.", "correct": true },
+        { "text": "Ходя на работа.", "correct": true },
+        { "text": "Спя.", "correct": false },
+        { "text": "Гледам телевизия.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Вечерта аз ____.",
+      "choices": ["спя", "кафе", "зелен", "пия", "чета", "ходя", "гледам"],
+      "answer": "спя"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson20",
+  "title": "Lesson 20: Transportation",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "кола", "en": "car" },
+        { "bg": "автобус", "en": "bus" },
+        { "bg": "влак", "en": "train" },
+        { "bg": "самолет", "en": "airplane" },
+        { "bg": "кораб", "en": "ship" },
+        { "bg": "велосипед", "en": "bicycle" },
+        { "bg": "мотор", "en": "motorcycle" },
+        { "bg": "такси", "en": "taxi" },
+        { "bg": "метро", "en": "metro" },
+        { "bg": "трамвай", "en": "tram" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Как стигаш до работа?",
+      "options": [
+        { "text": "С автобус.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "С кола.", "correct": true },
+        { "text": "С влак.", "correct": true },
+        { "text": "Пия кафе.", "correct": false },
+        { "text": "Къде?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Пътувам със ____.",
+      "choices": ["самолет", "кола", "автобус", "влак", "велосипед", "кораб", "такси"],
+      "answer": "самолет"
+    }
+  }
+}

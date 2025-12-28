@@ -1,0 +1,344 @@
+/* Ultra 3D – Thick Curved Borders */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #d0e0ff, #f0f4ff);
+    min-height: 100vh;
+}
+
+#app {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2),
+                0 15px 30px rgba(0,0,0,0.12);
+    backdrop-filter: blur(12px);
+}
+
+/* ==================== HEADING ==================== */
+h1#lesson-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.8rem;
+    background: linear-gradient(180deg, #2c3e50, #1a2533);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1.2px;
+    text-shadow: 
+        3px 3px 6px rgba(0,0,0,0.4),
+        0 6px 15px rgba(0,0,0,0.25),
+        0 0 25px rgba(52, 152, 219, 0.4);
+}
+
+#instructions {
+    font-size: 1.35rem;
+    text-align: center;
+    margin: 1.8rem 0;
+    color: #2d3436;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 
+        3px 3px 6px rgba(0,0,0,0.4),
+        0 6px 15px rgba(0,0,0,0.25),
+        0 0 25px rgba(52, 152, 219, 0.4);
+}
+
+#game-container p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    line-height: 1.5;
+}
+
+/* ==================== SUPER 3D BUTTONS – Thick Curved Borders ==================== */
+#game-nav {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+#game-nav button,
+.choice,
+#restart-lesson-btn {
+    position: relative;
+    padding: 1.3rem 1.8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Base 3D layered border effect */
+#game-nav button,
+.choice,
+#restart-lesson-btn {
+    background: linear-gradient(145deg, #ffffff, #e8e8e8);
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.15),
+        0 6px 12px rgba(0,0,0,0.1),
+        inset 0 -6px 12px rgba(0,0,0,0.05),
+        inset 0 6px 12px rgba(255,255,255,0.8);
+    border: 4px solid transparent;
+    background-clip: padding-box;
+}
+
+#game-nav button::before,
+.choice::before,
+#restart-lesson-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;
+    padding: 4px;
+    background: linear-gradient(145deg, #c0c0c0, #ffffff, #a0a0a0);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+#game-nav button:hover,
+.choice:hover,
+#restart-lesson-btn:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.25),
+        0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Active game button – highlighted in primary blue */
+#game-nav button.active {
+    background: linear-gradient(145deg, #007bff, #0056b3) !important;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 
+        0 12px 24px rgba(0,123,255,0.4),
+        0 6px 12px rgba(0,0,0,0.2),
+        inset 0 6px 12px rgba(255,255,255,0.3);
+    transform: translateY(-4px);
+}
+
+#game-nav button.active::before {
+    background: linear-gradient(145deg, #0069d9, #0095ff, #004085);
+}
+
+#game-nav button.active:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px rgba(0,123,255,0.5),
+        0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Specific overrides */
+#game-nav button {
+    flex: 1;
+    max-width: 280px;
+    color: #2c3e50;
+}
+
+/* Completed game button – Green highlight */
+#game-nav button.completed {
+    background: linear-gradient(145deg, #28a745, #218838) !important;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 
+        0 12px 24px rgba(40,167,69,0.4),
+        0 6px 12px rgba(0,0,0,0.2),
+        inset 0 6px 12px rgba(255,255,255,0.3);
+    transform: translateY(-4px);
+}
+
+#game-nav button.completed::before {
+    background: linear-gradient(145deg, #218838, #34ce57, #1e7e34);
+}
+
+#game-nav button.completed:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px rgba(40,167,69,0.5),
+        0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* When a button is both active AND completed, blue takes priority */
+#game-nav button.active.completed {
+    background: linear-gradient(145deg, #007bff, #0056b3) !important;
+}
+
+#game-nav button.active.completed::before {
+    background: linear-gradient(145deg, #0069d9, #0095ff, #004085);
+}
+
+#game-nav button.completed {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Fully disable hover effects on disabled nav buttons */
+#game-nav button:disabled {
+    cursor: not-allowed;
+    opacity: 0.75; /* Visual cue that it's disabled */
+    transform: none !important;
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.15),
+        0 6px 12px rgba(0,0,0,0.1),
+        inset 0 -6px 12px rgba(0,0,0,0.05),
+        inset 0 6px 12px rgba(255,255,255,0.8) !important; /* Lock the base inner highlight */
+}
+
+#game-nav button:disabled:hover {
+    transform: none !important;
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.15),
+        0 6px 12px rgba(0,0,0,0.1),
+        inset 0 -6px 12px rgba(0,0,0,0.05),
+        inset 0 6px 12px rgba(255,255,255,0.8) !important; /* Exactly the same as non-hover */
+}
+
+.choice {
+    margin: 1.2rem 0;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    color: #2d3436;
+    font-size: 1.45rem;
+}
+
+.choice.selected {
+    background: linear-gradient(145deg, #b8dcff, #90c8ff);
+    box-shadow: 
+        inset 0 10px 20px rgba(100,180,255,0.3),
+        inset 0 -8px 16px rgba(255,255,255,0.7);
+    color: #1e40af;
+}
+
+/* Restart button – primary color */
+#restart-lesson-btn {
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    padding: 1.4rem 3rem;
+    font-size: 1.35rem;
+}
+
+#restart-lesson-btn::before {
+    background: linear-gradient(145deg, #0069d9, #0095ff, #004085);
+}
+
+/* ==================== FEEDBACK / RESULTS – 3D Treatment ==================== */
+#feedback {
+    margin-top: 2.5rem;
+    font-size: 1.9rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 1.8rem;
+    border-radius: 20px;
+    min-height: 80px;
+    letter-spacing: 1.2px;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(145deg, #f8f9fc, #e9ecef);
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.12),
+        inset 0 8px 16px rgba(255,255,255,0.8),
+        inset 0 -8px 16px rgba(0,0,0,0.05);
+    border: 4px solid transparent;
+    background-clip: padding-box;
+}
+
+#feedback::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;
+    padding: 4px;
+    background: linear-gradient(145deg, #bbbbbb, #ffffff, #999999);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.correct {
+    color: #1e7b4a;
+    background: linear-gradient(145deg, rgba(39,174,96,0.15), rgba(20,120,60,0.1));
+    box-shadow: 
+        0 15px 30px rgba(39,174,96,0.3),
+        inset 0 10px 20px rgba(255,255,255,0.6);
+    text-shadow: 0 0 15px rgba(39,174,96,0.6);
+}
+
+.incorrect {
+    color: #c0392b;
+    background: linear-gradient(145deg, rgba(231,76,60,0.15), rgba(180,40,40,0.1));
+    box-shadow: 
+        0 15px 30px rgba(231,76,60,0.3),
+        inset 0 10px 20px rgba(255,255,255,0.5);
+    text-shadow: 0 0 15px rgba(231,76,60,0.5);
+}
+
+/* Match game columns */
+#bg-column, #en-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#restart-lesson-container {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#app > * {
+    animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* Make choice buttons shorter and more compact */
+.choice {
+    padding: 0.8rem 1.2rem !important;   /* Reduced vertical padding */
+    margin: 0.4rem 0 !important;         /* Less vertical margin */
+    line-height: 1.4 !important;         /* Tighter line height */
+    min-height: auto !important;         /* Prevent fixed minimum height */
+}
+
+/* Reduce spacing in match game columns */
+#bg-column, #en-column {
+    gap: 0.6rem !important;              /* Smaller gap between items */
+}
+
+/* Reduce spacing around prompt/sentence text */
+#game-container > p {
+    margin: 1rem 0 !important;
+    line-height: 1.5 !important;
+}
+
+/* Overall tighter layout for game container */
+#game-container {
+    gap: 0.8rem;                         /* Consistent reduced spacing */
+}

@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson18",
+  "title": "Lesson 18: Animals",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "куче", "en": "dog" },
+        { "bg": "котка", "en": "cat" },
+        { "bg": "птица", "en": "bird" },
+        { "bg": "риба", "en": "fish" },
+        { "bg": "кон", "en": "horse" },
+        { "bg": "овца", "en": "sheep" },
+        { "bg": "крава", "en": "cow" },
+        { "bg": "заек", "en": "rabbit" },
+        { "bg": "лъв", "en": "lion" },
+        { "bg": "слон", "en": "elephant" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Имаш ли домашен любимец?",
+      "options": [
+        { "text": "Да, имам куче.", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Какво?", "correct": false },
+        { "text": "Да, имам котка.", "correct": true },
+        { "text": "Не, нямам.", "correct": true },
+        { "text": "В града.", "correct": false },
+        { "text": "Пия кафе.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Това е моята ____.",
+      "choices": ["котка", "куче", "птица", "кон", "риба", "лъв", "овца"],
+      "answer": "котка"
+    }
+  }
+}

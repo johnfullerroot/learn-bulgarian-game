@@ -1,0 +1,38 @@
+{
+  "lessonId": "lesson14",
+  "title": "Lesson 14: Directions and Places",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "ляво", "en": "left" },
+        { "bg": "дясно", "en": "right" },
+        { "bg": "напред", "en": "forward" },
+        { "bg": "назад", "en": "back" },
+        { "bg": "горе", "en": "up" },
+        { "bg": "долу", "en": "down" },
+        { "bg": "улица", "en": "street" },
+        { "bg": "град", "en": "city" },
+        { "bg": "село", "en": "village" },
+        { "bg": "къща", "en": "house" },
+        { "bg": "магазин", "en": "shop" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Къде е банката?",
+      "options": [
+        { "text": "Наляво по улицата.", "correct": true },
+        { "text": "Благодаря!", "correct": false },
+        { "text": "Какво?", "correct": false },
+        { "text": "Направо и после надясно.", "correct": true },
+        { "text": "В града.", "correct": true },
+        { "text": "В петък.", "correct": false },
+        { "text": "Не знам.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Върви ____ и после наляво.",
+      "choices": ["напред", "ляво", "дясно", "горе", "улица", "град", "магазин"],
+      "answer": "напред"
+    }
+  }
+}

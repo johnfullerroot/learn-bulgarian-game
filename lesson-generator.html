@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Generator</title>
+    <style>
+        /* Ultra 3D – Thick Curved Borders */
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 1rem;
+            background: linear-gradient(135deg, #d0e0ff, #f0f4ff);
+            min-height: 100vh;
+        }
+
+        #app {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2),
+                        0 15px 30px rgba(0,0,0,0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(180deg, #2c3e50, #1a2533);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1.2px;
+            text-shadow: 
+                3px 3px 6px rgba(0,0,0,0.4),
+                0 6px 15px rgba(0,0,0,0.25),
+                0 0 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, #ffffff, #f8f9fc);
+            border-radius: 20px;
+            box-shadow: 
+                0 12px 24px rgba(0,0,0,0.12),
+                inset 0 8px 16px rgba(255,255,255,0.8),
+                inset 0 -8px 16px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 24px;
+            padding: 4px;
+            background: linear-gradient(145deg, #bbbbbb, #ffffff, #999999);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            color: #2c3e50;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .full-width-wrapper {
+            margin-bottom: 1.5rem;
+        }
+
+        .full-width-wrapper label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: #2d3436;
+        }
+
+        /* New style for inline label+input */
+        .inline-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .inline-wrapper label {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2d3436;
+            white-space: nowrap;
+            min-width: 220px;
+        }
+
+        .inline-wrapper input[type="text"] {
+            flex: 1;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #ffffff, #e8e8e8);
+            box-shadow: 
+                0 8px 16px rgba(0,0,0,0.1),
+                inset 0 -4px 8px rgba(0,0,0,0.05),
+                inset 0 4px 8px rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            transform: translateY(-4px);
+            box-shadow: 
+                0 16px 32px rgba(0,0,0,0.15),
+                inset 0 4px 12px rgba(255,255,255,0.9);
+        }
+
+        .pair, .option, .choice {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .pair input, .option input {
+            flex: 1;
+        }
+
+        .option select {
+            width: 160px;
+        }
+
+        button {
+            position: relative;
+            padding: 1.2rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, #ffffff, #e8e8e8);
+            box-shadow: 
+                0 12px 24px rgba(0,0,0,0.15),
+                0 6px 12px rgba(0,0,0,0.1),
+                inset 0 -6px 12px rgba(0,0,0,0.05),
+                inset 0 6px 12px rgba(255,255,255,0.8);
+            color: #2c3e50;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 24px;
+            padding: 4px;
+            background: linear-gradient(145deg, #c0c0c0, #ffffff, #a0a0a0);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+        }
+
+        button:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.25),
+                0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        #generate-btn {
+            display: block;
+            margin: 3rem auto;
+            padding: 1.5rem 3.5rem;
+            font-size: 1.4rem;
+            background: linear-gradient(145deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        #generate-btn::before {
+            background: linear-gradient(145deg, #0069d9, #0095ff, #004085);
+        }
+
+        #jsonOutput {
+            width: 100%;
+            height: 300px;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            border-radius: 16px;
+            background: #f8f9fc;
+            border: none;
+            box-shadow: inset 0 8px 16px rgba(0,0,0,0.08);
+            resize: vertical;
+        }
+
+        .add-btn {
+            background: linear-gradient(145deg, #28a745, #218838);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+
+        .add-btn::before {
+            background: linear-gradient(145deg, #218838, #34ce57, #1e7e34);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #app > * {
+            animation: fadeIn 0.7s ease-out forwards;
+            opacity: 0;
+            animation-delay: calc(0.1s * var(--i));
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Lesson Generator</h1>
+
+        <div class="section">
+            <h2>General</h2>
+            <div class="inline-wrapper">
+                <label>Lesson ID:</label>
+                <input type="text" id="lessonId">
+            </div>
+            <div class="inline-wrapper">
+                <label>Title:</label>
+                <input type="text" id="title">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Games: Match</h2>
+            <div id="matchPairs"></div>
+            <button class="add-btn" onclick="addMatchPair()">Add Pair</button>
+        </div>
+
+        <div class="section">
+            <h2>Games: Conversation</h2>
+            <div class="inline-wrapper">
+                <label>Prompt:</label>
+                <input type="text" id="conversationPrompt">
+            </div>
+            <div id="conversationOptions"></div>
+            <button class="add-btn" onclick="addConversationOption()">Add Option</button>
+        </div>
+
+        <div class="section">
+            <h2>Games: Fill Blank</h2>
+            <div class="inline-wrapper">
+                <label>Sentence (include _____ ):</label>
+                <input type="text" id="fillBlankSentence">
+            </div>
+            <div class="inline-wrapper">
+                <label>Answer:</label>
+                <input type="text" id="fillBlankAnswer">
+            </div>
+            <div id="fillBlankChoices"></div>
+            <button class="add-btn" onclick="addFillBlankChoice()">Add Choice</button>
+        </div>
+
+        <button id="generate-btn" onclick="generateJSON()">Generate JSON</button>
+        <textarea id="jsonOutput" readonly placeholder="Generated JSON will appear here…"></textarea>
+    </div>
+
+    <script>
+        let matchCount = 0;
+        let optionCount = 0;
+        let choiceCount = 0;
+
+        function addMatchPair() {
+            const container = document.getElementById('matchPairs');
+            const pair = document.createElement('div');
+            pair.className = 'pair';
+            pair.innerHTML = `
+                <input type="text" placeholder="Bulgarian (BG)" id="matchBg${matchCount}">
+                <input type="text" placeholder="English (EN)" id="matchEn${matchCount}">
+            `;
+            container.appendChild(pair);
+            matchCount++;
+        }
+
+        function addConversationOption(makeCorrect = false) {
+            const container = document.getElementById('conversationOptions');
+            const option = document.createElement('div');
+            option.className = 'option';
+            const selectId = `optionCorrect${optionCount}`;
+            option.innerHTML = `
+                <input type="text" placeholder="Option text" id="optionText${optionCount}">
+                <select id="${selectId}">
+                    <option value="false">Incorrect</option>
+                    <option value="true" ${makeCorrect ? 'selected' : ''}>Correct</option>
+                </select>
+            `;
+
+            const select = option.querySelector(`#${selectId}`);
+            select.addEventListener('change', function() {
+                if (this.value === 'true') {
+                    document.querySelectorAll('#conversationOptions select').forEach(other => {
+                        if (other !== this) {
+                            other.value = 'false';
+                        }
+                    });
+                }
+            });
+
+            container.appendChild(option);
+            optionCount++;
+        }
+
+        function addFillBlankChoice() {
+            const container = document.getElementById('fillBlankChoices');
+            const choice = document.createElement('div');
+            choice.className = 'choice';
+            choice.innerHTML = `
+                <input type="text" placeholder="Choice" id="choice${choiceCount}">
+            `;
+            container.appendChild(choice);
+            choiceCount++;
+        }
+
+        function generateJSON() {
+            const lessonId = document.getElementById('lessonId').value.trim();
+            const title = document.getElementById('title').value.trim();
+
+            if (!lessonId || !title) {
+                alert('Please fill in Lesson ID and Title.');
+                return;
+            }
+
+            // Match pairs
+            const matchPairs = [];
+            for (let i = 0; i < matchCount; i++) {
+                const bg = document.getElementById(`matchBg${i}`)?.value.trim();
+                const en = document.getElementById(`matchEn${i}`)?.value.trim();
+                if (bg && en) {
+                    matchPairs.push({ bg, en });
+                }
+            }
+
+            // Conversation
+            const conversationPrompt = document.getElementById('conversationPrompt').value.trim();
+            const conversationOptions = [];
+            let hasCorrect = false;
+            for (let i = 0; i < optionCount; i++) {
+                const textEl = document.getElementById(`optionText${i}`);
+                const correctEl = document.getElementById(`optionCorrect${i}`);
+                if (!textEl || !correctEl) continue;
+                const text = textEl.value.trim();
+                const correct = correctEl.value === 'true';
+                if (text) {
+                    conversationOptions.push({ text, correct });
+                    if (correct) hasCorrect = true;
+                }
+            }
+
+            if (!hasCorrect) {
+                alert('Please select exactly one correct option in the Conversation game.');
+                return;
+            }
+
+            // Fill Blank
+            const fillBlankSentence = document.getElementById('fillBlankSentence').value.trim();
+            const fillBlankAnswer = document.getElementById('fillBlankAnswer').value.trim();
+            const fillBlankChoices = [];
+            for (let i = 0; i < choiceCount; i++) {
+                const choiceEl = document.getElementById(`choice${i}`);
+                if (!choiceEl) continue;
+                const choice = choiceEl.value.trim();
+                if (choice) {
+                    fillBlankChoices.push(choice);
+                }
+            }
+
+            const jsonData = {
+                lessonId,
+                title,
+                games: {
+                    match: {
+                        pairs: matchPairs
+                    },
+                    conversation: {
+                        prompt: conversationPrompt,
+                        options: conversationOptions
+                    },
+                    fillBlank: {
+                        sentence: fillBlankSentence,
+                        choices: fillBlankChoices,
+                        answer: fillBlankAnswer
+                    }
+                }
+            };
+
+            if (matchPairs.length === 0 || !conversationPrompt || conversationOptions.length === 0 || !fillBlankSentence || fillBlankChoices.length === 0 || !fillBlankAnswer) {
+                alert('Please fill in all required fields for each game.');
+                return;
+            }
+
+            function formatArray(arr) {
+                if (arr.length === 0) return '[]';
+                const items = arr.map(item => '    ' + JSON.stringify(item));
+                return '[\n' + items.join(',\n') + '\n  ]';
+            }
+
+            const lines = [
+                '{',
+                '  "lessonId": ' + JSON.stringify(lessonId) + ',',
+                '  "title": ' + JSON.stringify(title) + ',',
+                '  "games": {',
+                '    "match": {',
+                '      "pairs": ' + formatArray(matchPairs),
+                '    },',
+                '    "conversation": {',
+                '      "prompt": ' + JSON.stringify(conversationPrompt) + ',',
+                '      "options": ' + formatArray(conversationOptions),
+                '    },',
+                '    "fillBlank": {',
+                '      "sentence": ' + JSON.stringify(fillBlankSentence) + ',',
+                '      "choices": ' + formatArray(fillBlankChoices) + ',',
+                '      "answer": ' + JSON.stringify(fillBlankAnswer),
+                '    }',
+                '  }',
+                '}'
+            ];
+
+            const jsonString = lines.join('\n');
+
+            document.getElementById('jsonOutput').value = jsonString;
+
+            // Auto download
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${lessonId}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initial fields
+        addMatchPair();
+        addConversationOption(true);
+        addConversationOption();
+        addConversationOption();
+        addFillBlankChoice();
+        addFillBlankChoice();
+        addFillBlankChoice();
+    </script>
+</body>
+</html>

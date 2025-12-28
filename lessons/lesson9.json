@@ -1,0 +1,33 @@
+{
+  "lessonId": "lesson9",
+  "title": "Lesson 9: Days of the Week",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "понеделник", "en": "Monday" },
+        { "bg": "вторник", "en": "Tuesday" },
+        { "bg": "сряда", "en": "Wednesday" },
+        { "bg": "четвъртък", "en": "Thursday" },
+        { "bg": "петък", "en": "Friday" },
+        { "bg": "събота", "en": "Saturday" },
+        { "bg": "неделя", "en": "Sunday" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Какво правиш в петък вечер?",
+      "options": [
+        { "text": "Обикновено излизам.", "correct": true },
+        { "text": "Ставам рано.", "correct": false },
+        { "text": "Пия вода.", "correct": false },
+        { "text": "Гледам филм.", "correct": true },
+        { "text": "Спя цял ден.", "correct": false },
+        { "text": "Работя.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Днес е ____.",
+      "choices": ["петък", "мляко", "спя", "събота", "понеделник", "неделя"],
+      "answer": "петък"
+    }
+  }
+}

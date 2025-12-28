@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson5",
+  "title": "Lesson 5: Numbers 1–10",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "един", "en": "one" },
+        { "bg": "две", "en": "two" },
+        { "bg": "три", "en": "three" },
+        { "bg": "четири", "en": "four" },
+        { "bg": "пет", "en": "five" },
+        { "bg": "шест", "en": "six" },
+        { "bg": "седем", "en": "seven" },
+        { "bg": "осем", "en": "eight" },
+        { "bg": "девет", "en": "nine" },
+        { "bg": "десет", "en": "ten" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Колко години си?",
+      "options": [
+        { "text": "На двадесет и пет съм.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "На тридесет съм.", "correct": true },
+        { "text": "На десет съм.", "correct": true },
+        { "text": "Имам пет ябълки.", "correct": false },
+        { "text": "Как си?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Имам ____ ябълки.",
+      "choices": ["три", "майка", "как", "шест", "осем", "десет", "седем"],
+      "answer": "три"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "lessonId": "lesson17",
+  "title": "Lesson 17: Body Parts",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "глава", "en": "head" },
+        { "bg": "ръка", "en": "hand" },
+        { "bg": "крак", "en": "foot" },
+        { "bg": "око", "en": "eye" },
+        { "bg": "уста", "en": "mouth" },
+        { "bg": "нос", "en": "nose" },
+        { "bg": "ухо", "en": "ear" },
+        { "bg": "коса", "en": "hair" },
+        { "bg": "зъб", "en": "tooth" },
+        { "bg": "корем", "en": "stomach" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Боли ли те нещо?",
+      "options": [
+        { "text": "Боли ме главата.", "correct": true },
+        { "text": "Здравей!", "correct": false },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "Боли ме кракът.", "correct": true },
+        { "text": "Не, добре съм.", "correct": true },
+        { "text": "Искам вода.", "correct": false },
+        { "text": "Къде?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Имам две ____.",
+      "choices": ["очи", "глава", "ръка", "нос", "ухо", "крак", "зъб"],
+      "answer": "очи"
+    }
+  }
+}

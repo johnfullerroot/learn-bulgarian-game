@@ -1,0 +1,34 @@
+{
+  "lessonId": "lesson3",
+  "title": "Lesson 3: Basic Questions",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "какво", "en": "what" },
+        { "bg": "кой", "en": "who" },
+        { "bg": "къде", "en": "where" },
+        { "bg": "как", "en": "how" },
+        { "bg": "защо", "en": "why" },
+        { "bg": "кога", "en": "when" },
+        { "bg": "колко", "en": "how much / how many" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Здравей! Как се казваш?",
+      "options": [
+        { "text": "Казвам се Иван.", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "Казвам се Мария.", "correct": true },
+        { "text": "Аз съм Петър.", "correct": true },
+        { "text": "Къде си?", "correct": false },
+        { "text": "Защо?", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "____ се казваш?",
+      "choices": ["Как", "Къде", "Кой", "Защо", "Кога", "Колко", "Какво"],
+      "answer": "Как"
+    }
+  }
+}

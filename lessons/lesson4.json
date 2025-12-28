@@ -1,0 +1,38 @@
+{
+  "lessonId": "lesson4",
+  "title": "Lesson 4: Family",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "семейство", "en": "family" },
+        { "bg": "майка", "en": "mother" },
+        { "bg": "баща", "en": "father" },
+        { "bg": "брат", "en": "brother" },
+        { "bg": "сестра", "en": "sister" },
+        { "bg": "баба", "en": "grandmother" },
+        { "bg": "дядо", "en": "grandfather" },
+        { "bg": "син", "en": "son" },
+        { "bg": "дъщеря", "en": "daughter" },
+        { "bg": "съпруг", "en": "husband" },
+        { "bg": "съпруга", "en": "wife" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Имаш ли брат или сестра?",
+      "options": [
+        { "text": "Да, имам брат.", "correct": true },
+        { "text": "Благодаря.", "correct": false },
+        { "text": "Къде?", "correct": false },
+        { "text": "Да, имам сестра.", "correct": true },
+        { "text": "Не, нямам.", "correct": true },
+        { "text": "Имам майка.", "correct": false },
+        { "text": "Здравей.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "Това е моята ____.",
+      "choices": ["майка", "какво", "довиждане", "сестра", "баба", "дъщеря", "съпруга"],
+      "answer": "майка"
+    }
+  }
+}

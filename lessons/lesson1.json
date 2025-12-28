@@ -1,0 +1,32 @@
+{
+  "lessonId": "lesson1",
+  "title": "Lesson 1: Basics (Hello, yes/no etc)",
+  "games": {
+    "match": {
+      "pairs": [
+        { "bg": "здравей", "en": "hello" },
+        { "bg": "да", "en": "yes" },
+        { "bg": "не", "en": "no" },
+        { "bg": "ок", "en": "okay" },
+        { "bg": "здравейте", "en": "hello (formal)" },
+        { "bg": "може би", "en": "maybe" }
+      ]
+    },
+    "conversation": {
+      "prompt": "Здравей!",
+      "options": [
+        { "text": "Здравей!", "correct": true },
+        { "text": "Довиждане.", "correct": false },
+        { "text": "Не.", "correct": false },
+        { "text": "Здравейте!", "correct": true },
+        { "text": "Да.", "correct": false },
+        { "text": "Ок.", "correct": false }
+      ]
+    },
+    "fillBlank": {
+      "sentence": "____ , как си?",
+      "choices": ["Здравей", "Не", "Да", "Здравейте", "Ок", "Може би"],
+      "answer": "Здравей"
+    }
+  }
+}
