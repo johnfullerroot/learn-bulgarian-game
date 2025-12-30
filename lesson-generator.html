@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +44,11 @@
                 3px 3px 6px rgba(0,0,0,0.4),
                 0 6px 15px rgba(0,0,0,0.25),
                 0 0 25px rgba(52, 152, 219, 0.4);
+        }
+
+        p {
+            color: #848285;
+            font-weight: 600;
         }
 
         .section {
@@ -151,6 +157,20 @@
             width: 160px;
         }
 
+        /* Mobile fix for Conversation options */
+        @media (max-width: 768px) {
+            .option {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .option input {
+                margin-bottom: 0.5rem;
+            }
+            .option select {
+                width: 100%;
+            }
+        }
+
         button {
             position: relative;
             padding: 1.2rem 1.8rem;
@@ -191,7 +211,9 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 
                 0 20px 40px rgba(0,0,0,0.25),
-                0 10px 20px rgba(0,0,0,0.15);
+                0 10px 20px rgba(0,0,0,0.15),
+                inset 0 -6px 12px rgba(0,0,0,0.05),
+                inset 0 6px 12px rgba(255,255,255,0.8);
         }
 
         #generate-btn {
@@ -231,13 +253,23 @@
             background: linear-gradient(145deg, #218838, #34ce57, #1e7e34);
         }
 
+        .remove-btn {
+            background: linear-gradient(145deg, #dc3545, #c82333);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+
+        .remove-btn::before {
+            background: linear-gradient(145deg, #c82333, #e4606d, #bd091d);
+        }
+
         /* Fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        #app > * {
+        #app > *:not(#generate-btn) {
             animation: fadeIn 0.7s ease-out forwards;
             opacity: 0;
             animation-delay: calc(0.1s * var(--i));
@@ -262,7 +294,20 @@
             color: #0056b3;
             text-decoration: underline;
         }
-        
+
+        #generate-btn:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.25),
+                0 10px 20px rgba(0,0,0,0.15),
+                inset 0 -6px 12px rgba(0,0,0,0.08),
+                inset 0 6px 12px rgba(255,255,255,0.9);
+        }
+
+        #generate-btn:hover::before {
+            background: linear-gradient(145deg, #0056b3, #00c0ff, #003d80);
+        }
+
     </style>
 </head>
 <body>
@@ -271,55 +316,69 @@
 
         <div class="section">
             <h2>General</h2>
+            <div>
+                <p>Lesson ID must lead with lesson (all lowercase) followed by a lesson number. Example: lesson1</p>
+            </div>
             <div class="inline-wrapper">
                 <label>Lesson ID:</label>
-                <input type="text" id="lessonId">
+                <input type="text" id="lessonId" placeholder="e.g. lesson1">
             </div>
             <div class="inline-wrapper">
                 <label>Title:</label>
-                <input type="text" id="title">
+                <input type="text" id="title" placeholder="e.g. Lesson 1: Basics (Hello, yes/no etc)">
             </div>
         </div>
 
         <div class="section">
             <h2>Games: Match</h2>
+            <div>
+                <p>Add pairs of Bulgarian words/phrases and their English translations.</p>
+            </div>
             <div id="matchPairs"></div>
             <button class="add-btn" onclick="addMatchPair()">Add Pair</button>
+            <button class="remove-btn" onclick="removeLastMatchPair()">Remove</button>
         </div>
 
         <div class="section">
             <h2>Games: Conversation</h2>
             <div class="inline-wrapper">
                 <label>Prompt:</label>
-                <input type="text" id="conversationPrompt">
+                <input type="text" id="conversationPrompt" placeholder="e.g. Здравей!">
             </div>
             <div id="conversationOptions"></div>
             <button class="add-btn" onclick="addConversationOption()">Add Option</button>
+            <button class="remove-btn" onclick="removeLastConversationOption()">Remove</button>
         </div>
 
         <div class="section">
             <h2>Games: Fill Blank</h2>
             <div class="inline-wrapper">
                 <label>Sentence (include _____ ):</label>
-                <input type="text" id="fillBlankSentence">
+                <input type="text" id="fillBlankSentence" placeholder="e.g. ____ , как си?">
             </div>
             <div class="inline-wrapper">
                 <label>Answer:</label>
-                <input type="text" id="fillBlankAnswer">
+                <input type="text" id="fillBlankAnswer" placeholder="e.g. Здравей!">
+            </div>
+            <div>
+                <p>At least one choice must exactly match the answer.</p>
             </div>
             <div id="fillBlankChoices"></div>
             <button class="add-btn" onclick="addFillBlankChoice()">Add Choice</button>
+            <button class="remove-btn" onclick="removeLastFillBlankChoice()">Remove</button>
         </div>
-
+        <div>
+            <p>When all fields are filled, click Generate JSON, it will show the result and automatically download the file.</p>
+        </div>
         <button id="generate-btn" onclick="generateJSON()">Generate JSON</button>
-        <textarea id="jsonOutput" readonly placeholder="Generated JSON will appear here…"></textarea>
+        <textarea id="jsonOutput" readonly placeholder="Generated JSON will appear here. Save in the lessons folder with a valid name, e.g. lesson1.json"></textarea>
     </div>
 
         <footer id="resources" style="margin-top: 3rem; text-align: center; font-size: 1.1rem; color: #2c3e50;">
             <a href="cheat-sheet.html" target="_blank" class="resource-link">Cheat Sheet</a> • 
             <a href="index.html" target="_blank" class="resource-link">Learn Bulgarian Game</a>
         </footer>
-    
+
     <script>
         let matchCount = 0;
         let optionCount = 0;
@@ -335,6 +394,14 @@
             `;
             container.appendChild(pair);
             matchCount++;
+        }
+
+        function removeLastMatchPair() {
+            const container = document.getElementById('matchPairs');
+            if (container.lastElementChild && matchCount > 0) {
+                container.removeChild(container.lastElementChild);
+                matchCount--;
+            }
         }
 
         function addConversationOption(makeCorrect = false) {
@@ -365,6 +432,14 @@
             optionCount++;
         }
 
+        function removeLastConversationOption() {
+            const container = document.getElementById('conversationOptions');
+            if (container.lastElementChild && optionCount > 0) {
+                container.removeChild(container.lastElementChild);
+                optionCount--;
+            }
+        }
+
         function addFillBlankChoice() {
             const container = document.getElementById('fillBlankChoices');
             const choice = document.createElement('div');
@@ -374,6 +449,14 @@
             `;
             container.appendChild(choice);
             choiceCount++;
+        }
+
+        function removeLastFillBlankChoice() {
+            const container = document.getElementById('fillBlankChoices');
+            if (container.lastElementChild && choiceCount > 0) {
+                container.removeChild(container.lastElementChild);
+                choiceCount--;
+            }
         }
 
         function generateJSON() {
